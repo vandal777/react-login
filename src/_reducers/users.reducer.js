@@ -6,6 +6,10 @@ export function users(state = {}, action) {
       return {
         loading: true
       };
+    case userConstants.GETTOOLS_REQUEST:
+      return {
+        loading: true
+      };
     case userConstants.GETALL_SUCCESS:
       return {
         items: action.users
@@ -13,6 +17,10 @@ export function users(state = {}, action) {
     case userConstants.GETTOOLS_SUCCESS:
       return {
         tools: action.tools
+      };
+    case userConstants.GETTOOLS_FAILURE:
+      return {
+        error: action.error
       };
     case userConstants.GETALL_FAILURE:
       return { 

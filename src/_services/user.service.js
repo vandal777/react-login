@@ -12,6 +12,11 @@ export const userService = {
     delete: _delete
 };
 
+export const toolses = {
+    id: 1,
+    description: 'hola',
+};
+
 function login(username, password) {
     const requestOptions = {
         method: 'POST',
@@ -47,12 +52,14 @@ function getAll() {
 }
 
 function getTools() {
-    const requestOptions = {
+    /* const requestOptions = {
         method: 'GET',
         headers: authHeader()
     };
 
-    return fetch(`${config.apiUrl}/tools`, requestOptions).then(handleResponse);
+    return fetch(`${config.apiUrl}/tools`, requestOptions).then(handleResponse);*/
+    console.log('toolses' ,toolses);
+    return toolses;
 }
 
 function getById(id) {
