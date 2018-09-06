@@ -52,14 +52,11 @@ function getAll() {
 }
 
 function getTools() {
-    /* const requestOptions = {
+    const requestOptions = {
         method: 'GET',
         headers: authHeader()
     };
-
-    return fetch(`${config.apiUrl}/tools`, requestOptions).then(handleResponse);*/
-    console.log('toolses' ,toolses);
-    return toolses;
+    return fetch(`${config.apiUrl}/tools`, requestOptions).then(handleResponse);
 }
 
 function getById(id) {

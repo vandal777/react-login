@@ -80,18 +80,17 @@ function getAll() {
 function getTool() {
     return dispatch => {
         dispatch(request());
-        tools = userService.getTools();
-        dispatch(success());
+        userService.getTools()
+            .then(
+                tools => dispatch(success(tools)),
+                error => dispatch(failure(error.toString()))
+            );
     };
 
     function request() { return { type: userConstants.GETTOOLS_REQUEST } }
-    function success() { return { type: userConstants.GETTOOLS_SUCCESS, tools } }
+    function success(tools) { return { type: userConstants.GETTOOLS_SUCCESS, tools } }
+    function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
 }
-/*
-function getTool() {
-    userService.getTools();
-    return { type: userConstants.GETTOOLS_SUCCESS };
-}*/
 
 // prefixed function name with underscore because delete is a reserved word in javascript
 function _delete(id) {
