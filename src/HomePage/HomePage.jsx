@@ -7,6 +7,7 @@ import { userActions } from '../_actions';
 class HomePage extends React.Component {
     componentDidMount() {
         this.props.dispatch(userActions.getAll());
+        this.props.dispatch(userActions.getTools());
     }
 
     handleDeleteUser(id) {
@@ -36,20 +37,20 @@ class HomePage extends React.Component {
                         )}
                     </ul>
                 }
-                {/* users.einas &&
+                {users.tools &&
                     <ul>
-                        {users.einas.map((eina, index) =>
-                            <li key={eina.Id}>
-                                {eina.Name + ' ' + eina.Description}
+                        {users.tools.map((tool, index) =>
+                            <li key={tool.id}>
+                                {tool.name + ' ' + tool.description}
                                 {
-                                    eina.deleting ? <em> - Deleting...</em>
-                                    : eina.deleteError ? <span className="text-danger"> - ERROR: {eina.deleteError}</span>
-                                    : <span> - <a onClick={this.handleDeleteUser(eina.id)}>Delete</a></span>
+                                    // tool.deleting ? <em> - Deleting...</em>
+                                    // : tool.deleteError ? <span className="text-danger"> - ERROR: {tool.deleteError}</span>
+                                    // : <span> - <a onClick={this.handleDeleteUser(tool.id)}>Delete</a></span>
                                 }
                             </li>
                         )}
                     </ul>
-                */}
+                }
                 <p>
                     <Link to="/login">Logout</Link>
                 </p>

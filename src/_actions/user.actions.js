@@ -65,7 +65,6 @@ function register(user) {
 function getAll() {
     return dispatch => {
         dispatch(request());
-        userService.getTools();
         userService.getAll()
             .then(
                 users => dispatch(success(users)),
@@ -81,7 +80,6 @@ function getAll() {
 function getTools() {
     return dispatch => {
         dispatch(request());
-
         userService.getTools()
             .then(
                 tools => dispatch(success(tools)),
@@ -90,8 +88,8 @@ function getTools() {
     };
 
     function request() { return { type: userConstants.GETTOOLS_REQUEST } }
-    function success(tools) { return { type: userConstants.GETTOOLS_REQUEST_SUCCESS, tools } }
-    function failure(error) { return { type: userConstants.GETTOOLS_REQUEST_FAILURE, error } }
+    function success(tools) { return { type: userConstants.GETTOOLS_SUCCESS, tools } }
+    function failure(error) { return { type: userConstants.GETTOOLS_FAILURE, error } }
 }
 
 // prefixed function name with underscore because delete is a reserved word in javascript
