@@ -23,7 +23,7 @@ class HomePage extends React.Component {
                 <h3>Aquestas son las Einas disponibles</h3>
                 {users.loading && <em>Carregant einas...</em>}
                 {users.error && <span className="text-danger">ERROR: {users.error}</span>}
-                {users.items &&
+                {/* users.items &&
                     <ul>
                         {users.items.map((user, index) =>
                             <li key={user.id}>
@@ -36,7 +36,7 @@ class HomePage extends React.Component {
                             </li>
                         )}
                     </ul>
-                }
+                */}
                 {users.tools &&
                     <ul>
                         {users.tools.map((tool, index) =>
