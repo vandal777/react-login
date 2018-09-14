@@ -6,7 +6,6 @@ export const userService = {
     logout,
     register,
     getAll,
-    getTools,
     getById,
     update,
     delete: _delete
@@ -44,15 +43,6 @@ function getAll() {
     };
 
     return fetch(`${config.apiUrl}/users`, requestOptions).then(handleResponse);
-}
-
-function getTools() {
-    const requestOptions = {
-        method: 'GET',
-        headers: authHeader()
-    };
-
-    return fetch(`${config.apiUrl}/tools`, requestOptions).then(handleResponse);
 }
 
 function getById(id) {
@@ -94,7 +84,7 @@ function _delete(id) {
     return fetch(`${config.apiUrl}/users/${id}`, requestOptions).then(handleResponse);
 }
 
-function handleResponse(response) {
+export function handleResponse(response) {
     return response.text().then(text => {
         const data = text && JSON.parse(text);
         if (!response.ok) {

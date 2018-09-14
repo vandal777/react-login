@@ -12,11 +12,6 @@ export function users(state = {}, action) {
         loading: false,
         items: action.users
       };
-    case userConstants.GETTOOLS_SUCCESS:
-      return {
-        ...state,
-        tools: action.tools
-      };
     case userConstants.GETALL_FAILURE:
       return { 
         error: action.error

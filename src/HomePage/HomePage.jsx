@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
 import { userActions } from '../_actions';
+import { toolActions } from '../_actions/tool.actions';
 
 class HomePage extends React.Component {
     componentDidMount() {
-        this.props.dispatch(userActions.getAll());
-        this.props.dispatch(userActions.getTools());
+        this.props.dispatch(toolActions.getAll());
     }
 
     handleDeleteUser(id) {
@@ -15,11 +14,11 @@ class HomePage extends React.Component {
     }
 
     render() {
-        const { user, users } = this.props;
+        const { user, users, tools } = this.props;
         return (
             <div className="col-md-6 col-md-offset-3">
                 <h1>Hola {user.firstName}!</h1>
-                <p>You're logged in with React!!</p>
+                <p>Acabas de fer login amb React!!</p>
                 <h3>Aquestas son las Einas disponibles</h3>
                 {users.loading && <em>Carregant einas...</em>}
                 {users.error && <span className="text-danger">ERROR: {users.error}</span>}
@@ -37,9 +36,9 @@ class HomePage extends React.Component {
                         )}
                     </ul>
                 */}
-                {users.tools &&
+                {tools.tools &&
                     <ul>
-                        {users.tools.map((tool, index) =>
+                        {tools.tools.map((tool, index) =>
                             <li key={tool.id}>
                                 {tool.name + ' ' + tool.description}
                                 {
