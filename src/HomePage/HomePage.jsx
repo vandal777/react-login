@@ -20,8 +20,8 @@ class HomePage extends React.Component {
                 <h1>Hola {user.firstName}!</h1>
                 <p>Acabas de fer login amb React!!</p>
                 <h3>Aquestas son las Einas disponibles</h3>
-                {users.loading && <em>Carregant einas...</em>}
-                {users.error && <span className="text-danger">ERROR: {users.error}</span>}
+                {tools.loading && <em>Carregant einas...</em>}
+                {tools.error && <span className="text-danger">ERROR: {users.error}</span>}
                 {/* users.items &&
                     <ul>
                         {users.items.map((user, index) =>
@@ -41,17 +41,12 @@ class HomePage extends React.Component {
                         {tools.tools.map((tool, index) =>
                             <li key={tool.id}>
                                 {tool.name + ' ' + tool.description}
-                                {
-                                    // tool.deleting ? <em> - Deleting...</em>
-                                    // : tool.deleteError ? <span className="text-danger"> - ERROR: {tool.deleteError}</span>
-                                    // : <span> - <a onClick={this.handleDeleteUser(tool.id)}>Delete</a></span>
-                                }
                             </li>
                         )}
                     </ul>
                 }
                 <p>
-                    <Link to="/login">Logout</Link>
+                    <Link to="/login">Tanca sessio</Link>
                 </p>
             </div>
         );

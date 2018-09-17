@@ -9,6 +9,7 @@ export function tools(state = {}, action) {
         case toolConstants.GETTOOLS_SUCCESS:
             return {
                 ...state,
+                loading: false,
                 tools: action.tools
         };
         case toolConstants.GETTOOLS_FAILURE:
