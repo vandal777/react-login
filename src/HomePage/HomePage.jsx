@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { userActions } from '../_actions';
 import { toolActions } from '../_actions/tool.actions';
 import ItemCard from '../_components/ItemCard';
-import './style.css';
+import injectSheet from 'react-jss'
+import styles from './style'; // Import styles
 
 class HomePage extends React.Component {
 	componentDidMount() {
@@ -16,10 +17,10 @@ class HomePage extends React.Component {
 	}
 
 	render() {
-		const { user, users, tools } = this.props;
+		const { user, users, tools, classes } = this.props;
 		return (
 			<div>
-				<h1>Hola {user.firstName}!</h1>
+				<h1 className={classes.titulito} >Hola {user.firstName}!</h1>
 				<p>Acabas de fer login amb React!!</p>
 				<h3>Aquestas son las Einas disponibles</h3>
 				{tools.loading && <em>Carregant einas...</em>}
@@ -38,7 +39,7 @@ class HomePage extends React.Component {
 						)}
 					</ul>
 				*/}
-				<div className="card-list">
+				<div className={classes.cardList}>
 					{tools.tools &&
 							tools.tools.map((tool, index) =>
 									<ItemCard
@@ -67,5 +68,6 @@ function mapStateToProps(state) {
 	};
 }
 
-const connectedHomePage = connect(mapStateToProps)(HomePage);
+const connectedHomePage = injectSheet(styles)(connect(mapStateToProps)(HomePage));
+
 export { connectedHomePage as HomePage };
