@@ -13,8 +13,9 @@ export const toolActions = {
 export const tools = [{
         "id": "5b9fea60dac7be2035c26247",
         "description": "Ullamco excepteur sit irure id veniam elit incididunt culpa exercitation voluptate. Amet consectetur do velit mollit aliqua tempor cillum aliqua Lorem anim ad pariatur laborum. Lorem officia enim duis et fugiat labore culpa. Tempor mollit incididunt ut adipisicing do consequat ipsum qui mollit proident. Ut minim sunt culpa dolore incididunt dolore exercitation Lorem officia nulla.",
-        "name": "Simon",
-        "greeting": "Soc un/a, Simon!"
+        "name": "Martell",
+        "greeting": "Soc un martell i puc fer molt de mal",
+        "link": "/src/Img/martillo.jpg"
     },
     {
         "id": "5b9fea605f39d3c57c20568c",

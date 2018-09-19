@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { userActions } from '../_actions';
 import { toolActions } from '../_actions/tool.actions';
 import ItemCard from '../_components/ItemCard';
-
+import './style.css';
 
 class HomePage extends React.Component {
 	componentDidMount() {
@@ -18,7 +18,7 @@ class HomePage extends React.Component {
 	render() {
 		const { user, users, tools } = this.props;
 		return (
-			<div className="col-md-6 col-md-offset-3">
+			<div>
 				<h1>Hola {user.firstName}!</h1>
 				<p>Acabas de fer login amb React!!</p>
 				<h3>Aquestas son las Einas disponibles</h3>
@@ -38,16 +38,17 @@ class HomePage extends React.Component {
 						)}
 					</ul>
 				*/}
-				{tools.tools &&
-						tools.tools.map((tool, index) =>
-								<ItemCard
-									key = {index}
-									name={tool.name}
-									description={tool.description}
-								/>                                   
-						)}
-
-				}
+				<div className="card-list">
+					{tools.tools &&
+							tools.tools.map((tool, index) =>
+									<ItemCard
+										key = {index}
+										name={tool.name}
+										description={tool.description}
+										img={tool.link}
+									/>                                   
+							)}
+				</div>
 				<p>
 					<Link to="/login">Tanca sessio</Link>
 				</p>

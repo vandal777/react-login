@@ -20,7 +20,7 @@ const styles = {
 };
 
 function ImgMediaCard(props) {
-	const { classes, name, description } = props;
+	const { classes, name, description , img} = props;
 	return (
 		<Card className={classes.card}>
 			<CardActionArea>
@@ -28,7 +28,7 @@ function ImgMediaCard(props) {
 					component="img"
 					className={classes.media}
 					height="140"
-					image="/static/images/cards/contemplative-reptile.jpg"
+					image={img}
 					title={name}
 				/>
 				<CardContent>
