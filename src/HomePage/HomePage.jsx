@@ -19,7 +19,7 @@ class HomePage extends React.Component {
 	render() {
 		const { user, users, tools, classes } = this.props;
 		return (
-			<div>
+			<div className={classes.container}>
 				<h1 className={classes.titulito} >Hola {user.firstName}!</h1>
 				<p>Acabas de fer login amb React!!</p>
 				<h3>Aquestas son las Einas disponibles</h3>
