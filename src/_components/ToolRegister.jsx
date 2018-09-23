@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { userActions } from '../_actions';
 import { toolActions } from '../_actions/tool.actions';
 
 class ToolRegister extends React.Component {
@@ -11,10 +10,10 @@ class ToolRegister extends React.Component {
 
         this.state = {
             tool: {
-                name: '',
-                description: '',
-                title: '',
-                links: ''
+                name: 'leo',
+                description: 'leo',
+                title: 'leo',
+                links: ['hola.jpg', 'adios']
             },
             submitted: false
         };

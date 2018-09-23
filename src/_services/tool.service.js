@@ -10,7 +10,7 @@ export const toolService = {
 function addTool(tool) {
     const requestOptions = {
         method: 'POST',
-        headers: authHeader(),
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(tool)
     };
 
