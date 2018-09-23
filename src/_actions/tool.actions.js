@@ -4,6 +4,8 @@ import {
 import {
     toolService
 } from '../_services/tool.service';
+import { alertActions } from './';
+
 
 export const toolActions = {
     getAll,
@@ -13,12 +15,11 @@ export const toolActions = {
 function addTool(tool) {
     return dispatch => {
         dispatch(request(tool));
-
         toolService.addTool(tool)
             .then(
                 tool => { 
                     dispatch(success());
-                    history.push('/login');
+                    history.push('/');
                     dispatch(alertActions.success('Registration successful'));
                 },
                 error => {

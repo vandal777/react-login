@@ -8,15 +8,15 @@ export const toolService = {
 };
 
 function addTool(tool) {
+    console.log("entro en el addtool", tool);
     const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { ...authHeader(), 'Content-Type': 'application/json' },
         body: JSON.stringify(tool)
     };
 
-    return fetch(`${config.apiUrl}/tools`, requestOptions).then(handleResponse); 
+    return fetch(`${config.apiUrl}/tools`, requestOptions).then(handleResponse);
 }
-
 
 function getAll() {
     const requestOptions = {
