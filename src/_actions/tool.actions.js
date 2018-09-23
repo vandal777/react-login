@@ -14,7 +14,7 @@ function addTool(tool) {
     return dispatch => {
         dispatch(request(tool));
 
-        toolService.register(tool)
+        toolService.addTool(tool)
             .then(
                 tool => { 
                     dispatch(success());

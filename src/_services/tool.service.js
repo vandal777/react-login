@@ -17,6 +17,7 @@ function addTool(tool) {
     return fetch(`${config.apiUrl}/tools`, requestOptions).then(handleResponse); 
 }
 
+
 function getAll() {
     const requestOptions = {
         method: 'GET',
