@@ -7,6 +7,7 @@ import ItemCard from '../_components/ItemCard';
 import injectSheet from 'react-jss'
 import styles from './style'; // Import styles
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { ToolRegister } from '../_components/ToolRegister';
 class HomePage extends React.Component {
 	componentDidMount() {
 		this.props.dispatch(toolActions.getAll());
@@ -65,7 +66,7 @@ class HomePage extends React.Component {
 					}
 						<TabPanel>
 							<div>
-								<h2>Aixo nomes es un proba de que tenim 2 tabs</h2>
+								<ToolRegister />
 							</div>
 						</TabPanel>
 				</Tabs>

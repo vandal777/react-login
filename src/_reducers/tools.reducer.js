@@ -16,6 +16,14 @@ export function tools(state = {}, action) {
             return { 
                 error: action.error
         };
+        case toolConstants.ADDTOOLS_REQUEST:
+            return { 
+                registering: true 
+            };
+        case toolConstants.ADDTOOLS_SUCCESS:
+            return {};
+        case toolConstants.ADDTOOLS_FAILURE:
+            return {};
         default:
             return state
     }

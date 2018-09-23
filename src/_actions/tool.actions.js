@@ -7,9 +7,47 @@ import {
 
 export const toolActions = {
     getAll,
+    addTool,
 };
 
+function addTool(tool) {
+    return dispatch => {
+        dispatch(request(tool));
 
+        toolService.register(tool)
+            .then(
+                tool => { 
+                    dispatch(success());
+                    history.push('/login');
+                    dispatch(alertActions.success('Registration successful'));
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                    dispatch(alertActions.error(error.toString()));
+                }
+            );
+    };
+
+    function request() { return { type: toolConstants.ADDTOOLS_REQUEST } }
+    function success(tools) { return { type: toolConstants.ADDTOOLS_SUCCESS, tools } }
+    function failure(error) { return { type: toolConstants.ADDTOOLS_FAILURE, error } }
+}
+
+function getAll() {
+    return dispatch => {
+        dispatch(request());
+        toolService.getAll()
+            .then(
+                tools => dispatch(success(tools)),
+                error => dispatch(failure(error.toString()))
+            );
+    };
+
+    function request() { return { type: toolConstants.GETTOOLS_REQUEST } }
+    function success(tools) { return { type: toolConstants.GETTOOLS_SUCCESS, tools } }
+    function failure(error) { return { type: toolConstants.GETTOOLS_FAILURE, error } }
+}
+/*
 export const tools = [{
         "id": "5b9fea60dac7be2035c26247",
         "description": "Ullamco excepteur sit irure id veniam elit incididunt culpa exercitation voluptate. Amet consectetur do velit mollit aliqua tempor cillum aliqua Lorem anim ad pariatur laborum. Lorem officia enim duis et fugiat labore culpa. Tempor mollit incididunt ut adipisicing do consequat ipsum qui mollit proident. Ut minim sunt culpa dolore incididunt dolore exercitation Lorem officia nulla.",
@@ -91,19 +129,4 @@ function getAll() {
             tools
         }
     }
-}
-
-/* function getAll() {
-    return dispatch => {
-        dispatch(request());
-        toolService.getAll()
-            .then(
-                tools => dispatch(success(tools)),
-                error => dispatch(failure(error.toString()))
-            );
-    };
-
-    function request() { return { type: toolConstants.GETTOOLS_REQUEST } }
-    function success(tools) { return { type: toolConstants.GETTOOLS_SUCCESS, tools } }
-    function failure(error) { return { type: toolConstants.GETTOOLS_FAILURE, error } }
 }*/
