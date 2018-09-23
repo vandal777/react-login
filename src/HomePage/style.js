@@ -10,5 +10,8 @@ export default {
     },
     container: {
         textAlign: "center",
+    },
+    tabContainer: {
+        display: "flex",
     }
 }
