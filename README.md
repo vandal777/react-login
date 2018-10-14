@@ -1,2 +1,2 @@
-# react redux user and tools aplication for STL of EPSEVG
+# react redux user and tools aplication for STL EPSEVG
 
